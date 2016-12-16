@@ -1,0 +1,19 @@
+<ion-view view title="Login">
+	<ion-nav-bar class="bar-stable">
+	  <ion-nav-back-button class="button-clear button-positive">
+	    <i class="ion-ios-arrow-back"></i> Back
+	  </ion-nav-back-button>
+	</ion-nav-bar>
+	<ion-content class="padding">
+		<div class="list">
+			<label class="item item-input">
+				<input type="text" placeholder="Username" ng-model="auth.email">
+			</label>
+			<label class="item item-input">
+				<input type="password" placeholder="Password" ng-model="auth.password">
+			</label>
+		    <button ng-click="auth.login()" class="button button-block button-positive">Login</button>
+			<p class="assertive" ng-show="auth.authError">{{auth.authErrorText}}</p>
+		</div>
+	</ion-content>
+</ion-view>

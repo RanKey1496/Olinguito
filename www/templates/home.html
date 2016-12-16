@@ -1,0 +1,28 @@
+<ion-view view-title="Home">
+	<ion-nav-bar class="bar-positive">
+		<ion-nav-buttons side="left">
+		  <button class="button" ng-click="home.login()">
+		    Login
+		  </button>
+		</ion-nav-buttons>
+		<ion-nav-buttons side="right">
+		  <button class="button" ng-click="home.register()">
+		    Register
+		  </button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+  <ion-content>
+    <div class="list card">
+      <div class="item item-avatar">
+        <img src="{{home.avatar}}">
+        <h2>{{home.lul}}</h2>
+        <p>{{home.swag}}</p>
+        <br>
+        <span>{{home.swag2}}</span>
+      </div>
+      <div class="item item-image">
+        <img src="{{home.imagen}}">
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

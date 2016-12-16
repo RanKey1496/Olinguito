@@ -1,4 +1,4 @@
-<ion-view view title="Login">
+<ion-view view title="Register">
 	<ion-nav-bar class="bar-stable">
 	  <ion-nav-back-button class="button-clear button-positive">
 	    <i class="ion-ios-arrow-back"></i> Back
@@ -18,7 +18,7 @@
 			<label class="item item-input">
 				<input type="password" placeholder="Password" ng-model="auth.password">
 			</label>
-		    <button ng-click="auth.login()" class="button button-block button-positive">Register</button>
+		    <button ng-click="auth.register()" class="button button-block button-positive">Register</button>
 			<p class="assertive" ng-show="auth.authError">{{auth.authErrorText}}</p>
 		</div>
 	</ion-content>

@@ -1,19 +1,23 @@
-angular.module('olinguito', ['ionic', 'satellizer'])
+angular.module('olinguito', ['ionic', 'satellizer', 'ngCordova'])
 .config(function($stateProvider, $urlRouterProvider, $authProvider, $httpProvider, $provide){
   function redirectWhenLoggedOut($q, $injector){
     return {
         responseError: function(rejection){
         var $state = $injector.get('$state');
-        var rejectionReasons = ['Invalid token format', 
-        'No Authorization header was found', 
-        'Invalid token format', 
-        'JsonWebTokenError', 
-        'TokenExpiredError'];
+        var rejectionReasons = [
+          'Invalid token format', 
+          'No Authorization header was found', 
+          'ValidationError', 
+          'JsonWebTokenError', 
+          'TokenExpiredError'
+        ];
 
         angular.forEach(rejectionReasons, function(value, key){
-          if(rejection.data.message.errors == value || rejection.data.message.errors == value){
-            localStorage.removeItem('user');
-            $state.go('login');
+          if(!rejection.data.success){
+            if(rejection.data.message == value){
+              localStorage.removeItem('user');
+              $state.go('login');
+            }
           }
         });
 
@@ -25,7 +29,8 @@ angular.module('olinguito', ['ionic', 'satellizer'])
   $provide.factory('redirectWhenLoggedOut', redirectWhenLoggedOut);
   $httpProvider.interceptors.push('redirectWhenLoggedOut');
 
-  $authProvider.loginUrl = 'https://olinguitoapi.herokuapp.com/signin';
+  $authProvider.loginUrl = 'http://olinguitoapi.herokuapp.com/signin';
+  $authProvider.signupUrl = 'https://olinguitoapi.herokuapp.com/signup';
   $urlRouterProvider.otherwise('/home');
 
   $stateProvider

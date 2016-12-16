@@ -7,5 +7,9 @@
   	</ion-footer-bar>
   <ion-content>
   	<h1>{{private.mensajeprueba}}</h1>
+  	<button class="button button-full button-positive" ng-click="private.getImageSaveContact()">
+  		Get Image and Save a Contact with It
+  	</button>
+  	<img ng-src="{{private.collection.selectedImage}}" style="width:100%; height: auto;"/>
   </ion-content>
 </ion-view>

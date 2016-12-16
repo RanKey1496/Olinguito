@@ -76,9 +76,9 @@ angular.module('olinguito', ['ionic', 'satellizer'])
     if(user){
       $rootScope.authenticated = true;
       $rootScope.currentUser = user;
-      if(toState.name === "auth") {
+      if(toState.name === "login") {
         event.preventDefault();
-        $state.go('home');
+        $state.go('private');
       }
     }
     if(toState.authRequired && !$rootScope.authenticated){

@@ -22,7 +22,7 @@ angular.module('olinguito')
 				localStorage.setItem('user', user);
 				$rootScope.authenticated = true;
 				$rootScope.currentUser = res.data.message;
-				$state.go('home');
+				$state.go('private');
 			}
 		})
 	};

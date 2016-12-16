@@ -11,9 +11,9 @@ angular.module('olinguito', ['ionic', 'satellizer'])
         'TokenExpiredError'];
 
         angular.forEach(rejectionReasons, function(value, key){
-          if(rejection.data.message == value || rejection.data.message.name == value){
+          if(rejection.data.message.errors == value || rejection.data.message.errors == value){
             localStorage.removeItem('user');
-            $state.go('auth');
+            $state.go('login');
           }
         });
 
